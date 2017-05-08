@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+#
+# simple shell handler
 import socket
 import sys
 import os
