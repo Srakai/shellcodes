@@ -1,7 +1,7 @@
 [BITS 64]
 
 ; **reverse ip6 tcp shell	
-; * size >= 111 bytes (depends of ip addr, default is ::1)
+; * size >= 113 bytes (depends of ip addr, default is ::1)
 ; * nullbytes free (depends only on ip addr,
 ;   you could always and the ip add to remove
 ;   the nulls like i did with the port)
