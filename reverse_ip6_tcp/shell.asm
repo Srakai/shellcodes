@@ -11,7 +11,7 @@ jakość[BITS 64]
 ; if they do, and you don't encodee the payload, you could do some
 ; bitwise operations
 ;
-; made by (github.com/poppoprekt)
+; made by (github.com/Srakai)
 
 
 AF_INET6 	equ 10
