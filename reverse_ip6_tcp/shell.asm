@@ -1,4 +1,4 @@
-[BITS 64]
+jakość[BITS 64]
 
 ; **reverse ip6 tcp shell	
 ; * size >= 113 bytes (depends of ip addr, default is ::1)
@@ -11,7 +11,7 @@
 ; if they do, and you don't encodee the payload, you could do some
 ; bitwise operations
 ;
-; made by srakai (github.com/Srakai)
+; made by (github.com/poppoprekt)
 
 
 AF_INET6 	equ 10
